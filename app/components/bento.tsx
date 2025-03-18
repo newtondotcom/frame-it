@@ -69,7 +69,7 @@ const features = [
   },
   {
     Icon: Rainbow,
-    name: "Share your memories",
+    name: "Share your photo gallery",
     description:
       "Help elderly family members stay connected with slideshow of family photos",
     href: "#",
