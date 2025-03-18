@@ -3,10 +3,11 @@ import { Link } from "react-router";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, X, Menu } from "lucide-react";
-import { BackgroundGradientAnimation } from "@/components/ui/background-gradient-animation";
 import HeroVideoDialog from "@/components/ui/hero-video-dialog";
 import WaitlistForm from "@/components/waitlist-form";
 import { BentoDemo } from "@/components/bento";
+import Configure from "@/components/configure";
+import ThemeToggle from "@/components/color-mode";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -24,69 +25,6 @@ export default function Home() {
   const toggleMobileMenu = () => {
     setMobileMenuOpen((prev) => !prev);
   };
-
-  const parallaxItems = [
-    {
-      title: '3.5" Compact Frame',
-      link: "/preorder",
-      thumbnail: "/placeholder.svg?height=600&width=400",
-    },
-    {
-      title: '5" Medium Frame',
-      link: "/preorder",
-      thumbnail: "/placeholder.svg?height=600&width=400",
-    },
-    {
-      title: '7" Large Frame',
-      link: "/preorder",
-      thumbnail: "/placeholder.svg?height=600&width=400",
-    },
-    {
-      title: "Black & White Display",
-      link: "/preorder",
-      thumbnail: "/placeholder.svg?height=600&width=400",
-    },
-    {
-      title: "Color Display",
-      link: "/preorder",
-      thumbnail: "/placeholder.svg?height=600&width=400",
-    },
-  ];
-
-  const features = [
-    {
-      title: "Photo Gallery",
-      description:
-        "Display your favorite memories with API integration for automatic updates",
-      icon: "image",
-    },
-    {
-      title: "Family Connection",
-      description:
-        "Help elderly family members stay connected with slideshow of family photos",
-      icon: "users",
-    },
-    {
-      title: "Personal Messages",
-      description: "Share special notes and messages with loved ones",
-      icon: "message-square",
-    },
-    {
-      title: "Information Display",
-      description: "Show date, weather, and calendar information at a glance",
-      icon: "calendar",
-    },
-    {
-      title: "Web Management",
-      description: "Easily control content through an intuitive web interface",
-      icon: "laptop",
-    },
-    {
-      title: "Secure Connection",
-      description: "End-to-end encryption keeps your personal content private",
-      icon: "shield",
-    },
-  ];
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -115,18 +53,14 @@ export default function Home() {
             Waitlist
           </Link>
           <Link
-            to="/preorder"
+            to="/mockups"
             className="text-sm font-medium hover:underline underline-offset-4"
           >
-            Preorder
-          </Link>
-          <Link
-            to="/dashboard"
-            className="text-sm font-medium hover:underline underline-offset-4"
-          >
-            Dashboard
+            Mockups
           </Link>
         </nav>
+
+        <ThemeToggle />
 
         <Button
           variant="ghost"
@@ -165,18 +99,11 @@ export default function Home() {
             Waitlist
           </Link>
           <Link
-            to="/preorder"
+            to="/mockups"
             className="text-sm font-medium hover:underline underline-offset-4"
             onClick={toggleMobileMenu}
           >
-            Preorder
-          </Link>
-          <Link
-            to="/dashboard"
-            className="text-sm font-medium hover:underline underline-offset-4"
-            onClick={toggleMobileMenu}
-          >
-            Dashboard
+            Mockups
           </Link>
         </nav>
       )}
@@ -196,10 +123,7 @@ export default function Home() {
                 </div>
                 <div className="flex flex-col gap-2 min-[400px]:flex-row">
                   <Link to="/preorder">
-                    <Button
-                      size="lg"
-                      className="bg-primary text-primary-foreground"
-                    >
+                    <Button size="lg">
                       Preorder Now <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
                   </Link>
@@ -230,11 +154,8 @@ export default function Home() {
           </div>
         </section>
 
-        <section
-          id="features"
-          className="w-full py-12 md:py-24 lg:py-32 bg-muted/40"
-        >
-          <div className="container px-4 md:px-6 space-y-12">
+        <section id="features" className="w-full py-12 md:py-24 lg:py-32">
+          <div className="min-w-full container px-4 md:px-6 space-y-12">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
@@ -251,29 +172,31 @@ export default function Home() {
         </section>
 
         <section id="specs" className="w-full py-12 md:py-24 lg:py-32">
-          <div className="container px-4 md:px-6">
+          <div className="min-w-full container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-                  Product Showcase
+                  Product Configurations
                 </h2>
                 <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                   Available in multiple sizes and colors to fit your needs
                 </p>
               </div>
             </div>
-            <div className="mx-auto max-w-5xl py-12"></div>
+            <div className="flex flex-col mx-auto max-w-5xl py-12 items-center">
+              <Configure />
+            </div>
           </div>
         </section>
 
         <section id="waitlist">
-          <BackgroundGradientAnimation className="w-full py-12 md:py-24 lg:py-32">
+          <div className="min-w-full px-4 py-12 md:py-24 lg:py-32">
             <div className="z-50 inset-0 flex items-center justify-center text-white font-bold px-4 pointer-events-none text-3xl text-center md:text-4xl lg:text-7xl">
-              <h2 className="bg-clip-text text-transparent drop-shadow-2xl bg-gradient-to-b from-white/80 to-white/20">
+              <h2 className="bg-clip-text text-transparent drop-shadow-2xl bg-gradient-to-b from-amber-400 to-yellow-300/20">
                 Join Our Waitlist
               </h2>
             </div>
-            <div className="container px-4 md:px-6">
+            <div className="min-w-full container px-4 md:px-6">
               <div className="flex flex-col items-center justify-center space-y-4 text-center">
                 <div className="space-y-2">
                   <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
@@ -285,7 +208,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
-          </BackgroundGradientAnimation>
+          </div>
         </section>
       </main>
       <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t">
