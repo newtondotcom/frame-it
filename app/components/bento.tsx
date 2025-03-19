@@ -1,5 +1,4 @@
-import { Images, TvMinimal, Rainbow } from "lucide-react";
-import { CalendarIcon } from "@radix-ui/react-icons";
+import { Images, TvMinimal, Rainbow, ShieldHalf } from "lucide-react";
 
 import { Calendar } from "@/components/ui/calendar";
 import { cn } from "@/lib/utils";
@@ -91,9 +90,9 @@ const features = [
     ),
   },
   {
-    Icon: CalendarIcon,
-    name: "Calendar",
-    description: "Use the calendar to filter your files by date.",
+    Icon: ShieldHalf,
+    name: "Security",
+    description: "All of your datas are encrypted before being sent to your Frame",
     className: "col-span-3 lg:col-span-1",
     href: "#",
     cta: "Learn more",
