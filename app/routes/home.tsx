@@ -47,16 +47,16 @@ export default function Home() {
             Specs
           </Link>
           <Link
+            to="#content"
+            className="text-sm font-medium hover:underline underline-offset-4"
+          >
+            Contents
+          </Link>
+          <Link
             to="#waitlist"
             className="text-sm font-medium hover:underline underline-offset-4"
           >
             Waitlist
-          </Link>
-          <Link
-            to="/mockups"
-            className="text-sm font-medium hover:underline underline-offset-4"
-          >
-            Mockups
           </Link>
         </nav>
 
@@ -92,18 +92,18 @@ export default function Home() {
             Specs
           </Link>
           <Link
+            to="#content"
+            className="text-sm font-medium hover:underline underline-offset-4"
+            onClick={toggleMobileMenu}
+          >
+            Contents
+          </Link>
+          <Link
             to="#waitlist"
             className="text-sm font-medium hover:underline underline-offset-4"
             onClick={toggleMobileMenu}
           >
             Waitlist
-          </Link>
-          <Link
-            to="/mockups"
-            className="text-sm font-medium hover:underline underline-offset-4"
-            onClick={toggleMobileMenu}
-          >
-            Mockups
           </Link>
         </nav>
       )}
@@ -202,7 +202,7 @@ export default function Home() {
               </div>
             </div>
             <div className="flex flex-col mx-auto max-w-5xl py-12 items-center">
-              <Configure />
+              Discover mockups we have built for you <Link to="/mockups">here</Link>
             </div>
           </div>
         </section>
