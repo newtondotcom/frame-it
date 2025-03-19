@@ -1,4 +1,4 @@
-import { Images, TvMinimal, Rainbow, ShieldHalf } from "lucide-react";
+import { Images, TvMinimal, Rainbow, ShieldPlus } from "lucide-react";
 
 import { Calendar } from "@/components/ui/calendar";
 import { cn } from "@/lib/utils";
@@ -90,9 +90,9 @@ const features = [
     ),
   },
   {
-    Icon: ShieldHalf,
-    name: "Security",
-    description: "All of your datas are encrypted before being sent to your Frame",
+    Icon: ShieldPlus,
+    name: "Secure Communication",
+    description: "All of your datas are encrypted before being sent to your Frame for a better protection",
     className: "col-span-3 lg:col-span-1",
     href: "#",
     cta: "Learn more",
