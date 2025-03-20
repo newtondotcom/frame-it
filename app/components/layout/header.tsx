@@ -10,10 +10,60 @@ export default function Header(){
     const toggleMobileMenu = () => {
       setMobileMenuOpen((prev) => !prev);
     };
-    const [isRainbow, setIsRainbow] = useState(false);
+    const [isRainbow, setIsRainbow] = useState();
     return (
       <>
-        <RainbowHeader isRainbow={isRainbow}>
+       { !isRainbow && (
+        <header>
+        <div className="flex items-center gap-2">
+          <span className="font-bold text-2xl">FrameIt</span>
+        </div>
+
+        <nav className="hidden md:flex gap-4 sm:gap-6">
+          <Link
+            to="#features"
+            className="text-sm font-medium hover:underline underline-offset-4"
+          >
+            Features
+          </Link>
+          <Link
+            to="#specs"
+            className="text-sm font-medium hover:underline underline-offset-4"
+          >
+            Specs
+          </Link>
+          <Link
+            to="#content"
+            className="text-sm font-medium hover:underline underline-offset-4"
+          >
+            Contents
+          </Link>
+          <Link
+            to="#waitlist"
+            className="text-sm font-medium hover:underline underline-offset-4"
+          >
+            Waitlist
+          </Link>
+        </nav>
+
+        <ThemeToggle />
+
+        <Button
+          variant="ghost"
+          className="md:hidden"
+          onClick={toggleMobileMenu}
+        >
+          {mobileMenuOpen ? (
+            <X className="w-6 h-6" />
+          ) : (
+            <Menu className="w-6 h-6" />
+          )}
+        </Button>
+      </header>
+       )}
+
+    { isRainbow && (
+      <RainbowHeader>
         <div className="flex items-center gap-2">
           <span className="font-bold text-2xl">FrameIt</span>
         </div>
@@ -59,6 +109,7 @@ export default function Header(){
           )}
         </Button>
       </RainbowHeader>
+    )}
 
       {mobileMenuOpen && (
         <nav className="fixed top-16 left-0 w-full md:hidden flex flex-col gap-4 p-4 border-b bg-white shadow-md">
