@@ -3,15 +3,17 @@ import { useState } from "react";
 import ThemeToggle from "@/components/color-mode";
 import { Button } from "@/components/ui/button";
 import { X, Menu } from "lucide-react";
+import { RainbowHeader } from "@/components/ui/rainbow-header";
 
 export default function Header(){
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const toggleMobileMenu = () => {
       setMobileMenuOpen((prev) => !prev);
     };
+    const [isRainbow, setIsRainbow] = useState(false);
     return (
       <>
-        <header className="fixed top-0 left-0 w-full md:w-[80%] h-16 flex items-center justify-between border border-primary bg-white/10 shadow-md z-50 px-4 lg:px-6 backdrop-blur-md mx-auto rounded-3xl">
+        <RainbowHeader isRainbow={isRainbow}>
         <div className="flex items-center gap-2">
           <span className="font-bold text-2xl">FrameIt</span>
         </div>
@@ -56,7 +58,7 @@ export default function Header(){
             <Menu className="w-6 h-6" />
           )}
         </Button>
-      </header>
+      </RainbowHeader>
 
       {mobileMenuOpen && (
         <nav className="fixed top-16 left-0 w-full md:hidden flex flex-col gap-4 p-4 border-b bg-white shadow-md">
