@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight} from "lucide-react";
 import HeroVideoDialog from "@/components/ui/hero-video-dialog";
+import { Link } from "react-router";
 
 export default function Welcome(){
     return(
