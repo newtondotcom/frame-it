@@ -11,7 +11,7 @@ export default function Header(){
     };
     return (
       <>
-        <header className="fixed top-0 left-0 w-full md:w-[80%] h-16 flex items-center justify-between border-b border-primary bg-white/10 shadow-md z-50 px-4 lg:px-6 backdrop-blur-md">
+        <header className="fixed top-0 left-0 w-full md:w-[80%] h-16 flex items-center justify-between border border-primary bg-white/10 shadow-md z-50 px-4 lg:px-6 backdrop-blur-md mx-auto rounded-3xl">
         <div className="flex items-center gap-2">
           <span className="font-bold text-2xl">FrameIt</span>
         </div>
