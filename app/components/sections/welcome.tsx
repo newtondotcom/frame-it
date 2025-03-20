@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, ChevronsDown } from "lucide-react";
 import { Link } from "react-router";
-import { RainbowText } from "@/components/ui/rainbow-test";
+import { RainbowText } from "@/components/ui/rainbow-text";
 
 export default function Welcome() {
   return (
