@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight} from "lucide-react";
+import { ArrowRight, ChevronsDown} from "lucide-react";
 import HeroVideoDialog from "@/components/ui/hero-video-dialog";
 import { Link } from "react-router";
 
@@ -31,6 +31,12 @@ export default function Welcome(){
           </Link>
         </div>
       </div>
+    </div>
+    <div className="flex flex-col justify-center space-y-4">
+      You thought that E-Ink was only black in white, as in your ereader ? Well, we thought so...
+      <h2>but it has colors</h2>
+      Scroll down to discover our site with colors.
+      <ChevronsDown size={36}  />
     </div>
   </div>
   <div className="flex flex-col w-full items-center pt-12">
