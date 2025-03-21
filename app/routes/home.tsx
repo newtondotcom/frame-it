@@ -20,27 +20,39 @@ export default function Home() {
   return (
     <main className="flex-1 snap-y snap-mandatory h-screen overflow-y-scroll scroll-smooth">
       {/* Welcome Section */}
-      <section className="snap-start h-screen w-full pt-24">
+      <section className="snap-start h-screen w-full pt-24 flex flex-col justify-center items-center">
         <Welcome />
       </section>
 
       {/* Features Section */}
-      <section id="features" className="snap-start h-screen w-full pt-24">
+      <section
+        id="features"
+        className="snap-start h-screen w-full pt-24 flex flex-col justify-center items-center"
+      >
         <Features />
       </section>
 
       {/* Specs Section */}
-      <section id="specs" className="snap-start h-screen w-full pt-24">
+      <section
+        id="specs"
+        className="snap-start h-screen w-full pt-24 flex flex-col justify-center items-center"
+      >
         <Specs />
       </section>
 
       {/* Content Section */}
-      <section id="content" className="snap-start h-screen w-full pt-24">
+      <section
+        id="content"
+        className="snap-start h-screen w-full pt-24 flex flex-col justify-center items-center"
+      >
         <Content />
       </section>
 
       {/* Convinced Section */}
-      <section id="buy" className="snap-start h-screen w-full pt-24">
+      <section
+        id="buy"
+        className="snap-start h-screen w-full pt-24 flex flex-col justify-center items-center"
+      >
         <Convinced />
       </section>
     </main>
