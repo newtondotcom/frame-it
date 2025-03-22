@@ -24,7 +24,7 @@ export default function ThemeToggle() {
           />
         </svg>
         <svg
-          className="w-6 h-6 text-primary hidden dark:block"
+          className="w-6 h-6 text-primary hidden dark:flex"
           width="16"
           height="16"
           xmlns="http://www.w3.org/2000/svg"
