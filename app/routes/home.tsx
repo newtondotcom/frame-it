@@ -6,7 +6,7 @@ import Convinced from "@/components/sections/convinced";
 import Content from "@/components/sections/content";
 import { useEffect, useRef } from "react";
 import { useIsVisible } from "@/hooks/use-is-visible";
-import { useRainbow } from "@/hooks/use-is-rainbow";
+import { useRainbowStore } from "@/hooks/use-is-rainbow";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -22,13 +22,10 @@ export function meta({}: Route.MetaArgs) {
 export default function Home() {
   const ref = useRef<HTMLDivElement>(null);
   const isVisible = useIsVisible(ref);
-  const { toggleRainbow } = useRainbow();
+  const { toggleRainbow } = useRainbowStore();
 
   useEffect(() => {
-    if (isVisible) {
-      toggleRainbow();
-      console.log("Rainbow mode enabled");
-    }
+    toggleRainbow();
   }, [isVisible]);
 
   return (
