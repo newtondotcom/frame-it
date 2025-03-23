@@ -22,12 +22,11 @@ export function meta({}: Route.MetaArgs) {
 export default function Home() {
   const ref = useRef<HTMLDivElement>(null);
   const isVisible = useIsVisible(ref);
-  const { toggleRainbow } = useRainbow();
+  const { isRainbow, toggleRainbow } = useRainbow();
 
   useEffect(() => {
-    if (isVisible) {
+    if (isVisible && !isRainbow) {
       toggleRainbow();
-      console.log("Rainbow mode enabled");
     }
   }, [isVisible]);
 
