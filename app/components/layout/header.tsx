@@ -4,10 +4,10 @@ import ThemeToggle from "@/components/color-mode";
 import { Button } from "@/components/ui/button";
 import { X, Menu } from "lucide-react";
 import { RainbowHeader } from "@/components/ui/rainbow-header";
-import { useRainbow } from "@/hooks/use-is-rainbow";
+import { useRainbowStore } from "@/hooks/use-is-rainbow";
 
 export default function Header() {
-  const { isRainbow } = useRainbow();
+  const { isRainbow } = useRainbowStore();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const toggleMobileMenu = () => {
     setMobileMenuOpen((prev) => !prev);

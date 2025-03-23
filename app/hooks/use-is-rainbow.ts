@@ -1,11 +1,11 @@
-import { useState } from "react";
+import { create } from "zustand";
 
-export function useRainbow() {
-  const [isRainbow, setIsRainbow] = useState(false);
-
-  const toggleRainbow = () => {
-    setIsRainbow((prev) => !prev);
-  };
-
-  return { isRainbow, toggleRainbow };
+interface RainbowState {
+  isRainbow: boolean;
+  toggleRainbow: () => void;
 }
+
+export const useRainbowStore = create<RainbowState>((set) => ({
+  isRainbow: false,
+  toggleRainbow: () => set((state) => ({ isRainbow: !state.isRainbow })),
+}));
