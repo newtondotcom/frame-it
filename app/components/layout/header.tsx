@@ -13,7 +13,7 @@ export default function Header() {
     setMobileMenuOpen((prev) => !prev);
   };
   return (
-    <div className="fixed top-2 left-0 right-0 ">
+    <div className="fixed top-2 left-0 right-0 z-[100]">
       {!isRainbow && (
         <header className="w-full max-w-[calc(100%-4rem)] h-16 flex items-center justify-between border border-black bg-white/10 dark:border-white dark:bg-dark/10 shadow-md z-50 px-4 lg:px-6 backdrop-blur-md rounded-3xl mx-auto">
           <div className="flex items-center gap-2">
