@@ -46,7 +46,7 @@ export default function Welcome() {
               </h3>
               <h2 className="text-3xl">
                 but it has
-                <RainbowText>&#xA0;colors !</RainbowText>
+                <span className=" text-primary">&#xA0;colors !</span>
               </h2>
               <span> Scroll down to discover our site with colors.</span>
               <ChevronsDown size={300} />
