@@ -1,5 +1,8 @@
 import { Link } from "react-router";
 import HeroVideoDialog from "@/components/ui/hero-video-dialog";
+import { AnimatedGradientText } from "@/components/ui/animated-gradient-text";
+import { ChevronRight } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 export default function Content() {
   return (
@@ -10,17 +13,42 @@ export default function Content() {
             Choose what to diplay
           </h2>
           <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-            Navigate through our app and build your{" "}
-            <span className="text-primary">Frame</span> customizez content
+            Navigate through our web app and build your{" "}
+            <span className="text-primary">Frame</span> custom contents
           </p>
         </div>
       </div>
       <div className="flex flex-col mx-auto max-w-5xl py-12 items-center">
-        Discover mockups we have built for you <Link to="/mockups">here</Link>{" "}
-        or lets us show you
+        <Link to="/mockups">
+          <AnimatedGradientText></AnimatedGradientText>
+          <div className="group relative mx-auto flex items-center justify-center rounded-full px-4 py-1.5 shadow-[inset_0_-8px_10px_#8fdfff1f] transition-shadow duration-500 ease-out hover:shadow-[inset_0_-5px_10px_#8fdfff3f] ">
+            <span
+              className={cn(
+                "absolute inset-0 block h-full w-full animate-gradient rounded-[inherit] bg-gradient-to-r from-[#ffaa40]/50 via-[#9c40ff]/50 to-[#ffaa40]/50 bg-[length:300%_100%] p-[1px]"
+              )}
+              style={{
+                WebkitMask:
+                  "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
+                WebkitMaskComposite: "destination-out",
+                mask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
+                maskComposite: "subtract",
+                WebkitClipPath: "padding-box",
+              }}
+            />
+            🎉 <hr className="mx-2 h-4 w-px shrink-0 bg-neutral-500" />
+            <AnimatedGradientText className="text-sm font-medium">
+              Discover mockups we have built for you
+            </AnimatedGradientText>
+            <ChevronRight
+              className="ml-1 size-4 stroke-neutral-500 transition-transform
+       duration-300 ease-in-out group-hover:translate-x-0.5"
+            />
+          </div>
+        </Link>
+        <div className="text-lg pt-12">or lets us show you</div>
       </div>
 
-      <div className="flex flex-col justify-center items-center pt-12 z-40">
+      <div className="flex flex-col justify-center items-center z-40">
         <HeroVideoDialog
           className="block dark:hidden w-1/2"
           animationStyle="from-center"

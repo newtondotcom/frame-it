@@ -75,7 +75,7 @@ const features = [
     cta: "Learn more",
     className: "col-span-3 lg:col-span-2",
     background: (
-      <AnimatedListDemo className="absolute right-2 top-4 h-[300px] w-full scale-75 border-none transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_10%,#000_100%)] group-hover:scale-90" />
+      <AnimatedListDemo className="absolute right-2 top-4 h-[250px] w-full scale-75 border-none transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_10%,#000_100%)] group-hover:scale-90" />
     ),
   },
   {
@@ -86,13 +86,14 @@ const features = [
     cta: "Learn more",
     className: "col-span-3 lg:col-span-2",
     background: (
-      <AnimatedBeamMultipleOutputDemo className="absolute right-2 top-4 h-[300px] border-none transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_10%,#000_100%)] group-hover:scale-105" />
+      <AnimatedBeamMultipleOutputDemo className="absolute right-2 top-4 h-[250px] border-none transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_10%,#000_100%)] group-hover:scale-105" />
     ),
   },
   {
     Icon: ShieldPlus,
     name: "Secure Communication",
-    description: "All of your datas are encrypted before being sent to your Frame for a better protection",
+    description:
+      "All of your datas are encrypted before being sent to your Frame for a better protection",
     className: "col-span-3 lg:col-span-1",
     href: "#",
     cta: "Learn more",
@@ -106,7 +107,7 @@ const features = [
   },
 ];
 
-export function BentoDemo() {
+export function Bento() {
   return (
     <BentoGrid>
       {features.map((feature, idx) => (
