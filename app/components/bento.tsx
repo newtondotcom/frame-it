@@ -1,11 +1,12 @@
+import { useInView } from "motion/react";
 import { Images, TvMinimal, Rainbow, ShieldPlus } from "lucide-react";
-
 import { Calendar } from "@/components/ui/calendar";
 import { cn } from "@/lib/utils";
 import AnimatedBeamMultipleOutputDemo from "@/components/ui/bento-elements/beam";
 import { AnimatedListDemo } from "@/components/ui/bento-elements/list";
 import { BentoCard, BentoGrid } from "@/components/ui/bento-grid";
 import Marquee from "@/components/ui/marquee";
+import { useRef } from "react";
 
 const files = [
   {
@@ -30,6 +31,77 @@ const files = [
   },
 ];
 
+const cardVariants = {
+  topLeft: {
+    offscreen: {
+      opacity: 0,
+      x: -50,
+      y: -50,
+    },
+    onscreen: {
+      opacity: 1,
+      x: 0,
+      y: 0,
+      transition: {
+        type: "spring",
+        bounce: 0.4,
+        duration: 0.8,
+      },
+    },
+  },
+  topRight: {
+    offscreen: {
+      opacity: 0,
+      x: 50,
+      y: -50,
+    },
+    onscreen: {
+      opacity: 1,
+      x: 0,
+      y: 0,
+      transition: {
+        type: "spring",
+        bounce: 0.4,
+        duration: 0.8,
+      },
+    },
+  },
+  bottomLeft: {
+    offscreen: {
+      opacity: 0,
+      x: -50,
+      y: 50,
+    },
+    onscreen: {
+      opacity: 1,
+      x: 0,
+      y: 0,
+      transition: {
+        type: "spring",
+        bounce: 0.4,
+        duration: 0.8,
+      },
+    },
+  },
+  bottomRight: {
+    offscreen: {
+      opacity: 0,
+      x: 50,
+      y: 50,
+    },
+    onscreen: {
+      opacity: 1,
+      x: 0,
+      y: 0,
+      transition: {
+        type: "spring",
+        bounce: 0.4,
+        duration: 0.8,
+      },
+    },
+  },
+};
+
 const features = [
   {
     Icon: Images,
@@ -38,6 +110,7 @@ const features = [
     href: "#",
     cta: "Learn more",
     className: "col-span-3 lg:col-span-1",
+    cardVariants: cardVariants.topLeft, // Top-left animation
     background: (
       <Marquee
         pauseOnHover
@@ -74,6 +147,7 @@ const features = [
     href: "#",
     cta: "Learn more",
     className: "col-span-3 lg:col-span-2",
+    cardVariants: cardVariants.topRight, // Top-right animation
     background: (
       <AnimatedListDemo className="absolute right-2 top-4 h-[250px] w-full scale-75 border-none transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_10%,#000_100%)] group-hover:scale-90" />
     ),
@@ -85,6 +159,7 @@ const features = [
     href: "#",
     cta: "Learn more",
     className: "col-span-3 lg:col-span-2",
+    cardVariants: cardVariants.bottomLeft, // Bottom-left animation
     background: (
       <AnimatedBeamMultipleOutputDemo className="absolute right-2 top-4 h-[250px] border-none transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_10%,#000_100%)] group-hover:scale-105" />
     ),
@@ -97,6 +172,7 @@ const features = [
     className: "col-span-3 lg:col-span-1",
     href: "#",
     cta: "Learn more",
+    cardVariants: cardVariants.bottomRight, // Bottom-right animation
     background: (
       <Calendar
         mode="single"
@@ -108,11 +184,16 @@ const features = [
 ];
 
 export function Bento() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.9 });
+
   return (
-    <BentoGrid>
-      {features.map((feature, idx) => (
-        <BentoCard key={idx} {...feature} />
-      ))}
-    </BentoGrid>
+    <div ref={ref}>
+      <BentoGrid>
+        {features.map((feature, idx) => (
+          <BentoCard {...feature} key={idx} isInView={isInView} />
+        ))}
+      </BentoGrid>
+    </div>
   );
 }

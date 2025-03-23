@@ -1,5 +1,6 @@
 import { ArrowRightIcon } from "@radix-ui/react-icons";
 import type { ComponentPropsWithoutRef, ReactNode } from "react";
+import { motion, type Variants } from "motion/react";
 
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -9,7 +10,7 @@ interface BentoGridProps extends ComponentPropsWithoutRef<"div"> {
   className?: string;
 }
 
-interface BentoCardProps extends ComponentPropsWithoutRef<"div"> {
+interface BentoCardProps extends ComponentPropsWithoutRef<"motion.div"> {
   name: string;
   className: string;
   background: ReactNode;
@@ -17,7 +18,9 @@ interface BentoCardProps extends ComponentPropsWithoutRef<"div"> {
   description: string;
   href: string;
   cta: string;
-  key?: number;
+  key: number;
+  isInView: boolean;
+  cardVariants: Variants;
 }
 
 const BentoGrid = ({ children, className, ...props }: BentoGridProps) => {
@@ -42,10 +45,15 @@ const BentoCard = ({
   description,
   href,
   cta,
+  isInView,
+  cardVariants,
   ...props
 }: BentoCardProps) => (
-  <div
-    key={name}
+  <motion.div
+    initial="offscreen"
+    animate={isInView ? "onscreen" : "offscreen"} // Trigger animation when in view
+    variants={cardVariants}
+    transition={{ delay: props.key * 0.2 }} // Staggered delay based on index
     className={cn(
       "group relative col-span-3 flex flex-col justify-between overflow-hidden rounded-xl",
       // light styles
@@ -78,7 +86,7 @@ const BentoCard = ({
       </Button>
     </div>
     <div className="pointer-events-none absolute inset-0 transform-gpu transition-all duration-300 group-hover:bg-black/[.03] group-hover:dark:bg-neutral-800/10" />
-  </div>
+  </motion.div>
 );
 
 export { BentoCard, BentoGrid };
