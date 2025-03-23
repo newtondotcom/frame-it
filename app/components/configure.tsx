@@ -28,7 +28,7 @@ function OptionCarousel({
   title: string;
   items: { title: string }[];
 }) {
-  const darkThemeMq = window.matchMedia("(prefers-color-scheme: dark)");
+  const darkThemeMq = document.documentElement.classList.contains("dark");
   return (
     <div className="w-full max-w-xs mx-auto">
       <h2 className="text-xl font-bold text-center mb-4">{title}</h2>
@@ -39,9 +39,7 @@ function OptionCarousel({
               <div className="p-1">
                 <Card>
                   <MagicCard
-                    gradientColor={
-                      darkThemeMq.matches ? "#262626" : "#D9D9D955"
-                    }
+                    gradientColor={darkThemeMq ? "#262626" : "#D9D9D955"}
                   >
                     <CardContent className="flex flex-col items-center justify-center p-4">
                       <span className="text-lg font-medium mt-2">

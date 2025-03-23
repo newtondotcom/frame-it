@@ -85,7 +85,7 @@ export default function Content() {
             />
           </motion.div>
         </Link>
-        <div className="text-lg pt-12">or let us show you</div>
+        <div className="text-lg pt-6">or let us show you</div>
       </div>
 
       <motion.div
