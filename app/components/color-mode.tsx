@@ -9,7 +9,7 @@ export default function ThemeToggle() {
     <div className="hidden md:flex flex-col justify-center items-center">
       <button onClick={toggleTheme} className="relative cursor-pointer">
         <svg
-          className="w-6 h-6 text-primary dark:hidden"
+          className="w-6 h-6 text-yellow-400 dark:hidden"
           width="16"
           height="16"
           xmlns="http://www.w3.org/2000/svg"
@@ -24,7 +24,7 @@ export default function ThemeToggle() {
           />
         </svg>
         <svg
-          className="w-6 h-6 text-primary hidden dark:flex"
+          className="w-6 h-6 text-yellow-400 hidden dark:flex"
           width="16"
           height="16"
           xmlns="http://www.w3.org/2000/svg"
