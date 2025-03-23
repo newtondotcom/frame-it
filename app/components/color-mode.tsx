@@ -1,18 +1,33 @@
 import { useEffect, useState } from "react";
 
 export default function ThemeToggle() {
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  useEffect(() => {
+    // Check initial theme on component mount
+    setIsDarkMode(document.documentElement.classList.contains("dark"));
+  }, []);
+
   const toggleTheme = () => {
+    const newMode = !isDarkMode;
     document.documentElement.classList.toggle("dark");
+    setIsDarkMode(newMode);
   };
 
   return (
     <div className="hidden md:flex flex-col justify-center items-center">
-      <button onClick={toggleTheme} className="relative cursor-pointer">
+      <button
+        onClick={toggleTheme}
+        className="relative cursor-pointer p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-ring"
+        aria-pressed={isDarkMode}
+        aria-label={isDarkMode ? "Switch to light mode" : "Switch to dark mode"}
+      >
         <svg
           className="w-6 h-6 text-yellow-400 dark:hidden"
           width="16"
           height="16"
           xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
         >
           <path
             className="fill-primary"
@@ -28,6 +43,7 @@ export default function ThemeToggle() {
           width="16"
           height="16"
           xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
         >
           <path
             className="fill-primary"
@@ -38,7 +54,6 @@ export default function ThemeToggle() {
             d="M8 4C5.8 4 4 5.8 4 8s1.8 4 4 4 4-1.8 4-4-1.8-4-4-4Z"
           />
         </svg>
-        <span className="sr-only">Switch to light / dark mode</span>
       </button>
     </div>
   );

@@ -1,5 +1,5 @@
 import { useInView } from "motion/react";
-import { Images, TvMinimal, Rainbow, ShieldPlus } from "lucide-react";
+import { Images, TvIcon as TvMinimal, Rainbow, ShieldPlus } from "lucide-react";
 import { Calendar } from "@/components/ui/calendar";
 import { cn } from "@/lib/utils";
 import AnimatedBeamMultipleOutputDemo from "@/components/ui/bento-elements/beam";
@@ -10,24 +10,24 @@ import { useRef } from "react";
 
 const files = [
   {
-    name: "bitcoin.pdf",
-    body: "Bitcoin is a cryptocurrency invented in 2008 by an unknown person or group of people using the name Satoshi Nakamoto.",
+    name: "family-vacation.jpg",
+    body: "Relive your favorite family moments with stunning clarity and color that's gentle on the eyes.",
   },
   {
-    name: "finances.xlsx",
-    body: "A spreadsheet or worksheet is a file made of rows and columns that help sort data, arrange data easily, and calculate numerical data.",
+    name: "anniversary.jpg",
+    body: "Special occasions deserve special displays. Share your most precious memories in a format that lasts.",
   },
   {
-    name: "logo.svg",
-    body: "Scalable Vector Graphics is an Extensible Markup Language-based vector image format for two-dimensional graphics with support for interactivity and animation.",
+    name: "grandkids.jpg",
+    body: "Keep your loved ones close, even when they're far away. Perfect for sharing growing moments with family.",
   },
   {
-    name: "keys.gpg",
-    body: "GPG keys are used to encrypt and decrypt email, files, directories, and whole disk partitions and to authenticate messages.",
+    name: "wedding-album.jpg",
+    body: "Your most cherished memories deserve to be displayed with the elegance and permanence of FrameIt.",
   },
   {
-    name: "seed.txt",
-    body: "A seed phrase, seed recovery phrase or backup seed phrase is a list of words which store all the information needed to recover Bitcoin funds on-chain.",
+    name: "holiday-memories.jpg",
+    body: "Seasonal joy that changes with you. Easily update your display to match the moment or mood.",
   },
 ];
 
@@ -105,16 +105,18 @@ const cardVariants = {
 const features = [
   {
     Icon: Images,
-    name: "Photo Gallery",
-    description: "Display your favorite memories.",
+    name: "Stunning Photo Gallery",
+    description:
+      "Display your memories in vivid color with our advanced E-Ink technology that's gentle on the eyes and uses minimal power.",
     href: "#",
-    cta: "Learn more",
+    cta: "Explore gallery features",
     className: "col-span-3 lg:col-span-1",
     cardVariants: cardVariants.topLeft, // Top-left animation
     background: (
       <Marquee
         pauseOnHover
         className="absolute top-10 [--duration:20s] [mask-image:linear-gradient(to_top,transparent_40%,#000_100%)] "
+        aria-hidden="true"
       >
         {files.map((f, idx) => (
           <figure
@@ -141,43 +143,51 @@ const features = [
   },
   {
     Icon: Rainbow,
-    name: "Share your photo gallery",
+    name: "Seamless Family Connection",
     description:
-      "Help elderly family members stay connected with slideshow of family photos",
+      "Bridge generations with a simple, elegant display that keeps elderly family members connected through a continuous stream of updated family photos.",
     href: "#",
-    cta: "Learn more",
+    cta: "Learn about sharing",
     className: "col-span-3 lg:col-span-2",
     cardVariants: cardVariants.topRight, // Top-right animation
     background: (
-      <AnimatedListDemo className="absolute right-2 top-4 h-[250px] w-full scale-75 border-none transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_10%,#000_100%)] group-hover:scale-90" />
+      <AnimatedListDemo
+        className="absolute right-2 top-4 h-[250px] w-full scale-75 border-none transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_10%,#000_100%)] group-hover:scale-90"
+        aria-hidden="true"
+      />
     ),
   },
   {
     Icon: TvMinimal,
-    name: "Display lots of things",
-    description: "Supports lots of contents, like images, weather or news.",
+    name: "Versatile Content Display",
+    description:
+      "Beyond photos, showcase weather updates, calendar events, news headlines, and personalized messages—all with the eye comfort of E-Ink technology.",
     href: "#",
-    cta: "Learn more",
+    cta: "Discover content options",
     className: "col-span-3 lg:col-span-2",
     cardVariants: cardVariants.bottomLeft, // Bottom-left animation
     background: (
-      <AnimatedBeamMultipleOutputDemo className="absolute right-2 top-4 h-[250px] border-none transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_10%,#000_100%)] group-hover:scale-105" />
+      <AnimatedBeamMultipleOutputDemo
+        className="absolute right-2 top-4 h-[250px] border-none transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_10%,#000_100%)] group-hover:scale-105"
+        aria-hidden="true"
+      />
     ),
   },
   {
     Icon: ShieldPlus,
-    name: "Secure Communication",
+    name: "Bank-Level Security",
     description:
-      "All of your datas are encrypted before being sent to your Frame for a better protection",
+      "Your memories deserve protection. All content is end-to-end encrypted before transmission to your Frame, ensuring complete privacy and security.",
     className: "col-span-3 lg:col-span-1",
     href: "#",
-    cta: "Learn more",
+    cta: "Explore security features",
     cardVariants: cardVariants.bottomRight, // Bottom-right animation
     background: (
       <Calendar
         mode="single"
         selected={new Date(2022, 4, 11, 0, 0, 0)}
         className="absolute right-0 top-10 origin-top scale-75 rounded-md border transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_40%,#000_100%)] group-hover:scale-90"
+        aria-hidden="true"
       />
     ),
   },

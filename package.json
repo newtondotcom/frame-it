@@ -6,7 +6,8 @@
     "build": "react-router build",
     "dev": "react-router dev",
     "start": "react-router-serve ./build/server/index.js",
-    "typecheck": "react-router typegen && tsc"
+    "typecheck": "react-router typegen && tsc",
+    "zip": "zip -r v0.zip . -x 'node_modules/*' -x '.react-router/*' -x '.git/*' -x 'build/*'"
   },
   "dependencies": {
     "@hookform/resolvers": "^4.1.3",

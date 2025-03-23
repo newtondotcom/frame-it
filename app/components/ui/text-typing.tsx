@@ -1,3 +1,5 @@
+import type React from "react";
+
 import { cn } from "@/lib/utils";
 import { motion } from "motion/react";
 import type { MotionProps } from "motion/react";

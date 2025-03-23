@@ -1,41 +1,36 @@
-import { ArrowRightIcon } from "@radix-ui/react-icons";
-import type { ComponentPropsWithoutRef, ReactNode } from "react";
-import { motion, type Variants } from "motion/react";
+import type React from "react"
+import { ArrowRightIcon } from "@radix-ui/react-icons"
+import type { ComponentPropsWithoutRef, ReactNode } from "react"
+import { motion, type Variants } from "motion/react"
 
-import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button"
+import { cn } from "@/lib/utils"
 
 interface BentoGridProps extends ComponentPropsWithoutRef<"div"> {
-  children: ReactNode;
-  className?: string;
+  children: ReactNode
+  className?: string
 }
 
 interface BentoCardProps extends ComponentPropsWithoutRef<"motion.div"> {
-  name: string;
-  className: string;
-  background: ReactNode;
-  Icon: React.ElementType;
-  description: string;
-  href: string;
-  cta: string;
-  key: number;
-  isInView: boolean;
-  cardVariants: Variants;
+  name: string
+  className: string
+  background: ReactNode
+  Icon: React.ElementType
+  description: string
+  href: string
+  cta: string
+  key: number
+  isInView: boolean
+  cardVariants: Variants
 }
 
 const BentoGrid = ({ children, className, ...props }: BentoGridProps) => {
   return (
-    <div
-      className={cn(
-        "grid w-full auto-rows-[20rem] grid-cols-3 gap-4",
-        className
-      )}
-      {...props}
-    >
+    <div className={cn("grid w-full auto-rows-[20rem] grid-cols-3 gap-4", className)} {...props}>
       {children}
     </div>
-  );
-};
+  )
+}
 
 const BentoCard = ({
   name,
@@ -60,33 +55,36 @@ const BentoCard = ({
       "bg-background [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)]",
       // dark styles
       "transform-gpu dark:bg-background dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset]",
-      className
+      className,
     )}
     {...props}
+    role="article"
   >
     <div>{background}</div>
     <div className="pointer-events-none z-10 flex transform-gpu flex-col gap-1 p-6 transition-all duration-300 group-hover:-translate-y-10">
-      <Icon className="h-12 w-12 origin-left transform-gpu text-neutral-700 transition-all duration-300 ease-in-out group-hover:scale-75" />
-      <h3 className="text-xl font-semibold text-neutral-700 dark:text-neutral-300">
-        {name}
-      </h3>
+      <Icon
+        className="h-12 w-12 origin-left transform-gpu text-neutral-700 transition-all duration-300 ease-in-out group-hover:scale-75 dark:text-neutral-300"
+        aria-hidden="true"
+      />
+      <h3 className="text-xl font-semibold text-neutral-700 dark:text-neutral-300">{name}</h3>
       <p className="max-w-lg text-neutral-400">{description}</p>
     </div>
 
     <div
       className={cn(
-        "pointer-events-none absolute bottom-0 flex w-full translate-y-10 transform-gpu flex-row items-center p-4 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100"
+        "pointer-events-none absolute bottom-0 flex w-full translate-y-10 transform-gpu flex-row items-center p-4 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100",
       )}
     >
-      <Button variant="ghost" asChild size="sm" className="pointer-events-auto">
+      <Button variant="ghost" asChild size="sm" className="pointer-events-auto focus:ring-2 focus:ring-ring">
         <a href={href}>
           {cta}
-          <ArrowRightIcon className="ms-2 h-4 w-4 rtl:rotate-180" />
+          <ArrowRightIcon className="ms-2 h-4 w-4 rtl:rotate-180" aria-hidden="true" />
         </a>
       </Button>
     </div>
     <div className="pointer-events-none absolute inset-0 transform-gpu transition-all duration-300 group-hover:bg-black/[.03] group-hover:dark:bg-neutral-800/10" />
   </motion.div>
-);
+)
 
-export { BentoCard, BentoGrid };
+export { BentoCard, BentoGrid }
+

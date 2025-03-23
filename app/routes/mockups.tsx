@@ -1,4 +1,4 @@
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card"
 
 const mockups = [
   {
@@ -13,7 +13,7 @@ const mockups = [
     title: "Mockup 3",
     iframe: "/mockup/1",
   },
-];
+]
 
 export default function Mockups() {
   return (
@@ -23,15 +23,13 @@ export default function Mockups() {
         {mockups.map((mockup, index) => (
           <Card key={index}>
             <CardContent>
-              <iframe
-                src={mockup.iframe}
-                className="w-full h-64 sm:h-80 lg:h-96"
-              />
+              <iframe src={mockup.iframe} className="w-full h-64 sm:h-80 lg:h-96" />
               <h3>{mockup.title}</h3>
             </CardContent>
           </Card>
         ))}
       </div>
     </div>
-  );
+  )
 }
+

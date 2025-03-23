@@ -45,22 +45,29 @@ export default function Content() {
     <div className="min-w-full container px-4 md:px-6" ref={videoRef}>
       <div className="flex flex-col items-center justify-center space-y-4 text-center">
         <div className="space-y-2">
-          <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-            Choose what to display
+          <h2
+            className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl"
+            id="content-heading"
+          >
+            Personalize Your Experience
           </h2>
           <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-            Navigate through our web app and build your{" "}
-            <span className="text-primary">Frame</span> custom contents
+            Curate your perfect display through our intuitive web app and
+            transform your <span className="text-primary">FrameIt</span> into a
+            personalized window to what matters most
           </p>
         </div>
       </div>
-      <div className="flex flex-col mx-auto max-w-5xl py-12 items-center">
-        <Link to="/mockups">
+      <div className="flex flex-col mx-auto max-w-5xl py-6 items-center">
+        <Link
+          to="/mockups"
+          aria-label="View mockup examples of FrameIt displays"
+        >
           <motion.div
             initial="offscreen"
             animate={isInView ? "onscreen" : "offscreen"}
             variants={buttonVariants}
-            className="group relative mx-auto flex items-center justify-center rounded-full px-4 py-1.5 shadow-[inset_0_-8px_10px_#8fdfff1f] transition-shadow duration-500 ease-out hover:shadow-[inset_0_-5px_10px_#8fdfff3f] "
+            className="group relative mx-auto flex items-center justify-center rounded-full px-4 py-1.5 shadow-[inset_0_-8px_10px_#8fdfff1f] transition-shadow duration-500 ease-out hover:shadow-[inset_0_-5px_10px_#8fdfff3f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
           >
             <span
               className={cn(
@@ -74,18 +81,24 @@ export default function Content() {
                 maskComposite: "subtract",
                 WebkitClipPath: "padding-box",
               }}
+              aria-hidden="true"
             />
-            🎉 <hr className="mx-2 h-4 w-px shrink-0 bg-neutral-500" />
+            🎉{" "}
+            <hr
+              className="mx-2 h-4 w-px shrink-0 bg-neutral-500"
+              aria-hidden="true"
+            />
             <AnimatedGradientText className="text-sm font-medium">
-              Discover mockups we have built for you
+              Explore our gallery of inspiring examples
             </AnimatedGradientText>
             <ChevronRight
               className="ml-1 size-4 stroke-neutral-500 transition-transform
        duration-300 ease-in-out group-hover:translate-x-0.5"
+              aria-hidden="true"
             />
           </motion.div>
         </Link>
-        <div className="text-lg pt-6">or let us show you</div>
+        <div className="text-lg pt-6">or watch our demo video below</div>
       </div>
 
       <motion.div
@@ -95,18 +108,18 @@ export default function Content() {
         variants={videoVariants}
       >
         <HeroVideoDialog
-          className="block dark:hidden w-1/2"
+          className="block dark:hidden w-full md:w-3/4 lg:w-1/2"
           animationStyle="from-center"
           videoSrc="https://www.youtube.com/embed/qh3NGpYRG3I?si=4rb-zSdDkVK9qxxb"
           thumbnailSrc="https://startup-template-sage.vercel.app/hero-light.png"
-          thumbnailAlt="Hero Video"
+          thumbnailAlt="FrameIt product demonstration video"
         />
         <HeroVideoDialog
-          className="hidden dark:block w-1/2"
+          className="hidden dark:block w-full md:w-3/4 lg:w-1/2"
           animationStyle="from-center"
           videoSrc="https://www.youtube.com/embed/qh3NGpYRG3I?si=4rb-zSdDkVK9qxxb"
           thumbnailSrc="https://startup-template-sage.vercel.app/hero-dark.png"
-          thumbnailAlt="Hero Video"
+          thumbnailAlt="FrameIt product demonstration video"
         />
       </motion.div>
     </div>

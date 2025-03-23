@@ -1,14 +1,12 @@
 const features = [
   {
     title: "Photo Gallery",
-    description:
-      "Display your favorite memories with API integration for automatic updates",
+    description: "Display your favorite memories with API integration for automatic updates",
     icon: "image",
   },
   {
     title: "Family Connection",
-    description:
-      "Help elderly family members stay connected with slideshow of family photos",
+    description: "Help elderly family members stay connected with slideshow of family photos",
     icon: "users",
   },
   {
@@ -31,4 +29,5 @@ const features = [
     description: "End-to-end encryption keeps your personal content private",
     icon: "shield",
   },
-];
+]
+

@@ -1,3 +1,5 @@
+import type React from "react";
+
 import { motion } from "framer-motion";
 import type { RefObject } from "react";
 import { useEffect, useId, useState } from "react";
@@ -5,7 +7,10 @@ import { cn } from "@/lib/utils";
 
 export interface AnimatedBeamProps {
   className?: string;
-  containerRef: RefObject<HTMLElement> | Element | RefObject<HTMLDivElement | null>; // Container ref
+  containerRef:
+    | RefObject<HTMLElement>
+    | Element
+    | RefObject<HTMLDivElement | null>; // Container ref
   fromRef: RefObject<HTMLElement> | RefObject<HTMLDivElement | null>;
   toRef: RefObject<HTMLElement> | RefObject<HTMLDivElement | null>;
   curvature?: number;

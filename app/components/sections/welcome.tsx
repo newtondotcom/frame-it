@@ -1,8 +1,5 @@
 import { motion, useInView } from "framer-motion";
-import { Button } from "@/components/ui/button";
-import { ArrowRight, ChevronsDown } from "lucide-react";
-import { Link } from "react-router";
-import { RainbowText } from "@/components/ui/rainbow-text";
+import { ChevronsDown } from "lucide-react";
 import { TypingAnimation } from "../ui/text-typing";
 import { useRef } from "react";
 
@@ -31,24 +28,29 @@ export default function Welcome() {
     <>
       <div className="h-screen flex flex-col justify-center container px-4 md:px-6">
         <div className="flex flex-col justify-center space-y-12">
-          <div className="flex flex-col justify-center space-y-4 w-1/2">
+          <div className="flex flex-col justify-center space-y-4 w-full md:w-2/3 lg:w-1/2">
             <div className="space-y-2">
-              <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
-                Your New Digital Frame with E-Ink Technology
+              <h1
+                className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none"
+                id="welcome-heading"
+              >
+                Reimagine Your Memories with E-Ink Innovation
               </h1>
               <p className="max-w-[600px] text-muted-foreground md:text-xl">
-                Low power, always-on display that brings your memories to life
-                with the comfort of paper-like viewing.
+                Experience the perfect blend of technology and nostalgia with
+                our ultra-low power, always-on display that brings your
+                cherished moments to life with the comfort and elegance of
+                paper.
               </p>
             </div>
           </div>
           <div className="flex flex-col justify-center items-center space-y-4 w-full">
-            <div className="flex flex-col items-center">
-              <h3 className="">
-                You thought that E-Ink was only black in white, as in your
-                ereader? Well, we thought so...
+            <div className="flex flex-col items-center text-center">
+              <h3 className="text-lg md:text-xl" aria-live="polite">
+                Thought E-Ink was limited to black and white like your e-reader?
+                We did too...
               </h3>
-              <h2 className="text-3xl flex flex-row space-x-2">
+              <h2 className="text-3xl flex flex-row space-x-2 items-center flex-wrap justify-center">
                 <span className="text-4xl font-bold leading-[5rem] tracking-[-0.02em] text-background">
                   d
                 </span>
@@ -58,19 +60,27 @@ export default function Welcome() {
                   delay={550}
                   className="underline"
                 >
-                  colors !
+                  vibrant colors!
                 </TypingAnimation>
               </h2>
-              <span> Scroll down to discover our site with colors.</span>
+              <span className="mt-4">
+                {" "}
+                Scroll down to discover our revolutionary technology in full
+                color.
+              </span>
               <motion.div
                 ref={chevronsRef}
                 initial="offscreen"
                 animate={isInView ? "onscreen" : "offscreen"}
                 variants={chevronsVariants}
                 className="text-black dark:text-white"
+                aria-hidden="true"
               >
                 <ChevronsDown size={300} />
               </motion.div>
+              <span className="sr-only">
+                Scroll down to explore more about FrameIt
+              </span>
             </div>
           </div>
         </div>
