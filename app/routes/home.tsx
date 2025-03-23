@@ -5,8 +5,8 @@ import Specs from "@/components/sections/specs";
 import Convinced from "@/components/sections/convinced";
 import Content from "@/components/sections/content";
 import { useEffect, useRef } from "react";
-import { useIsVisible } from "@/hooks/use-is-visible";
 import { useRainbowStore } from "@/hooks/use-is-rainbow";
+import { useInView } from "motion/react";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -21,14 +21,15 @@ export function meta({}: Route.MetaArgs) {
 
 export default function Home() {
   const ref = useRef<HTMLDivElement>(null);
-  const isVisible = useIsVisible(ref);
+  const ref2 = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref2, { once: true, amount: 0.2 });
   const { isRainbow, toggleRainbow } = useRainbowStore();
 
   useEffect(() => {
-    if (isVisible && !isRainbow) {
+    if (isInView && !isRainbow) {
       toggleRainbow();
     }
-  }, [isVisible]);
+  }, [isInView]);
 
   return (
     <main className="flex-1 snap-y snap-mandatory h-screen overflow-y-scroll scroll-smooth">
@@ -41,6 +42,7 @@ export default function Home() {
       <section
         id="features"
         className="snap-start h-screen w-full pt-24 flex flex-col justify-center items-center"
+        ref={ref2}
       >
         <Features />
       </section>
