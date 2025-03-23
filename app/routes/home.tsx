@@ -51,7 +51,7 @@ export default function Home() {
       <section
         id="specs"
         ref={ref}
-        className="snap-start h-screen w-full pt-24 flex flex-col justify-center items-center"
+        className="snap-start h-screen w-full pt-24 flex flex-col justify-center items-center  bg-[url(/frame.png)]"
       >
         <Specs />
       </section>
