@@ -17,16 +17,16 @@ export const BackgroundGradientAnimation = ({
   interactive = true,
   containerClassName,
 }: {
-  gradientBackgroundStart?: string;
-  gradientBackgroundEnd?: string;
-  firstColor?: string;
-  secondColor?: string;
-  thirdColor?: string;
-  fourthColor?: string;
-  fifthColor?: string;
-  pointerColor?: string;
-  size?: string;
-  blendingValue?: string;
+  gradientBackgroundStart?: string | string | null;
+  gradientBackgroundEnd?: string | string | null;
+  firstColor?: string | string | null;
+  secondColor?: string | string | null;
+  thirdColor?: string | string | null;
+  fourthColor?: string | string | null;
+  fifthColor?: string | string | null;
+  pointerColor?: string | string | null;
+  size?: string | string | null;
+  blendingValue?: string | string | null;
   children?: React.ReactNode;
   className?: string;
   interactive?: boolean;

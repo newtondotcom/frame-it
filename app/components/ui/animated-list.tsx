@@ -3,7 +3,12 @@ import { AnimatePresence, motion } from "motion/react";
 import React, { useEffect, useMemo, useState } from "react";
 import type { ComponentPropsWithoutRef } from "react";
 
-export function AnimatedListItem({ children }: { children: React.ReactNode }) {
+export function AnimatedListItem({
+  children,
+}: {
+  children: React.ReactNode;
+  key?: string | null;
+}) {
   const animations = {
     initial: { scale: 0, opacity: 0 },
     animate: { scale: 1, opacity: 1, originY: 0 },

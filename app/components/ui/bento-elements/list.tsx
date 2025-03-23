@@ -7,6 +7,7 @@ interface Item {
   icon: string;
   color: string;
   time: string;
+key?: number;
 }
 
 let notifications = [

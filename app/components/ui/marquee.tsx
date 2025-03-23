@@ -6,7 +6,7 @@ interface MarqueeProps {
   pauseOnHover?: boolean;
   children?: React.ReactNode;
   vertical?: boolean;
-  repeat?: number;
+  repeat?: number | number | undefined;
   [key: string]: any;
 }
 
