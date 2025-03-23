@@ -70,6 +70,17 @@
   --chart-5: oklch(0.75 0.3 350);
 }
 
+
+
+@layer base {
+* {
+@apply border-border outline-ring/50;
+}
+body {
+@apply bg-background text-foreground;
+}
+}
+
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -117,14 +128,9 @@
   @keyframes rainbow {
       "0%": { "background-position": "0%" }
       "100%": { "background-position": "200%" }
-}
-}
-
-@layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
-}
+    --gradient: gradient 8s linear infinite";
+    @keyframes: gradient {
+        to: {  "background-position": "var(--bg-size) 0"}
+    }
+    }
+    }
