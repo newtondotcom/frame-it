@@ -51,9 +51,6 @@ export default function Welcome() {
                 We did too...
               </h3>
               <h2 className="text-3xl flex flex-row space-x-2 items-center flex-wrap justify-center">
-                <span className="text-4xl font-bold leading-[5rem] tracking-[-0.02em] text-background">
-                  d
-                </span>
                 <TypingAnimation duration={50}>but it has</TypingAnimation>
                 <TypingAnimation
                   duration={50}
