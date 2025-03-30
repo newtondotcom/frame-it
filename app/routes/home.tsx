@@ -35,7 +35,7 @@ export default function Home() {
   return (
     <>
       <Header />
-      <main className="flex-1 snap-y snap-mandatory h-screen overflow-y-scroll scroll-smooth">
+      <main className="flex-1 snap-y snap-mandatory h-screen overflow-y-scroll scroll-smooth max-w-screen overflow-x-hidden">
         {/* Welcome Section */}
         <section className="relative snap-start h-screen w-full pt-24 flex flex-col justify-center items-center">
           {/* Background image with scaling and blur effect */}
