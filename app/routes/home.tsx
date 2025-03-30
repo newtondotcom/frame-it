@@ -7,6 +7,7 @@ import Content from "@/components/sections/content";
 import { useEffect, useRef } from "react";
 import { useRainbowStore } from "@/hooks/use-is-rainbow";
 import { useInView } from "motion/react";
+import Header from "@/components/layout/header";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -32,45 +33,54 @@ export default function Home() {
   }, [isInView]);
 
   return (
-    <main className="flex-1 snap-y snap-mandatory h-screen overflow-y-scroll scroll-smooth">
-      {/* Welcome Section */}
-      <section className="snap-start h-screen w-full pt-24 flex flex-col justify-center items-center">
-        <Welcome />
-      </section>
+    <>
+      <Header />
+      <main className="flex-1 snap-y snap-mandatory h-screen overflow-y-scroll scroll-smooth">
+        {/* Welcome Section */}
+        <section className="relative snap-start h-screen w-full pt-24 flex flex-col justify-center items-center">
+          {/* Background image with scaling and blur effect */}
+          <div className="absolute inset-0 bg-[url(/kitchen.jpg)] bg-cover bg-center bg-opacity-50 blur-sm scale-105"></div>
 
-      {/* Features Section */}
-      <section
-        id="features"
-        className="snap-start h-screen w-full pt-24 flex flex-col justify-center items-center"
-        ref={ref2}
-      >
-        <Features />
-      </section>
+          {/* Content layer */}
+          <div className="relative z-10">
+            <Welcome />
+          </div>
+        </section>
 
-      {/* Specs Section */}
-      <section
-        id="specs"
-        ref={ref}
-        className="snap-start h-screen w-full pt-24 flex flex-col justify-center items-center  bg-[url(/frame.png)]"
-      >
-        <Specs />
-      </section>
+        {/* Features Section */}
+        <section
+          id="features"
+          className="snap-start h-screen w-full pt-24 flex flex-col justify-center items-center"
+          ref={ref2}
+        >
+          <Features />
+        </section>
 
-      {/* Content Section */}
-      <section
-        id="content"
-        className="snap-start h-screen w-full pt-24 flex flex-col justify-center items-center"
-      >
-        <Content />
-      </section>
+        {/* Specs Section */}
+        <section
+          id="specs"
+          ref={ref}
+          className="snap-start h-screen w-full pt-24 flex flex-col justify-center items-center"
+        >
+          <Specs />
+        </section>
 
-      {/* Convinced Section */}
-      <section
-        id="buy"
-        className="snap-start h-screen w-full pt-24 flex flex-col justify-center items-center"
-      >
-        <Convinced />
-      </section>
-    </main>
+        {/* Content Section */}
+        <section
+          id="content"
+          className="snap-start h-screen w-full pt-24 flex flex-col justify-center items-center"
+        >
+          <Content />
+        </section>
+
+        {/* Convinced Section */}
+        <section
+          id="buy"
+          className="snap-start h-screen w-full pt-24 flex flex-col justify-center items-center"
+        >
+          <Convinced />
+        </section>
+      </main>
+    </>
   );
 }
